@@ -22,3 +22,13 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Data files
+data/raw/
+data/processed/
+*.csv
+
+# Virtual environment
+venv/
+.venv/
+.env
