@@ -9,23 +9,23 @@ from src.exception import CustomException
 
 def run_training_pipeline():
     try:
-        logger.info("=== Training pipeline started ===")
+        logger.info("Training pipeline started ")
 
-        # 1. Data Ingestion
+        #  Data Ingestion
         ingestion = DataIngestion()
         train_path, test_path = ingestion.initiate_data_ingestion()
 
-        # 2. Data Transformation
+        #  Data Transformation
         transformer = DataTransformation()
         train_arr, test_arr, preprocessor_path = transformer.initiate_data_transformation(
             train_path, test_path
         )
 
-        # 3. Model Training
+        # Model Training
         trainer = ModelTrainer()
         model_path, best = trainer.initiate_model_trainer(train_arr, test_arr)
 
-        logger.info("=== Training pipeline completed successfully ===")
+        logger.info(" Training pipeline completed successfully ")
         logger.info(f"Best model: {best['name']}")
         logger.info(f"Model saved at: {model_path}")
         logger.info(f"Preprocessor saved at: {preprocessor_path}")
